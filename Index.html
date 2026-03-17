@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adedapo Fagorala</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body class="flex flex-col bg-[#F8FAFC] min-h-screen font-[Poppins]">
+    <header class="text-[#64748B]">
+      <nav
+        class="flex justify-between items-center md:w-[70%] w-[95%] mx-auto py-4"
+      >
+        <div class="logo text-xl font-semibold">
+          <a href="Index.html"><h1>ADEDAPO FAGORALA</h1></a>
+        </div>
+        <div
+          class="navLinks duration-500 md:static md:min-h-fit absolute bg-[#F8FAFC] min-h-[30vh] left-0 top-[-100%] md:w-auto w-full md:border-none border-t-2 border-b-2 border-[#E2E8F0] flex items-center justify-center"
+        >
+          <ul
+            class="flex md:flex-row flex-col md:items-center md:gap-[3vw] gap-3 font-medium"
+          >
+            <li>
+              <a class="hover:text-[#2563EB] hover:underline" href="Index.html" >Home</a>
+            </li>
+            <li>
+              <a class="hover:text-[#2563EB] hover:underline" href="About.html">About</a>
+            </li>
+            <li>
+              <a class="hover:text-[#2563EB] hover:underline" href="projects.html"
+                >Projects</a
+              >
+            </li>
+            <!-- <li>
+              <a class="hover:text-[#2563EB] hover:underline" href="contact.html"
+                >Contact</a
+              >
+            </li> -->
+          </ul>
+        </div>
+        <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+      </nav>
+    </header>
+    <section class="flex flex-col flex-1  items-center justify-center gap-8 ">
+        <img class="w-50 rounded-full" src="img/Logo.png" alt="profile">
+        <div class="flex flex-col items-center gap-2">
+            <h1 class="text-3xl text-[#64748B] font-semibold">Adedapo Fagorala</h1>
+            <h2 class="text-2xl text-[#64748B] font-medium">Frontend Developer</h2>
+        </div>
+        <div class="flex items-center gap-6">
+           <a href="mailto:adedapofagorala@gmail.com" class="cursor-pointer ">
+            <ion-icon class="text-4xl text-[#64748B] hover:text-[#2563EB]" name="mail-open-outline"></ion-icon>
+           </a>
+           <a href="https://wa.me/2349069697463" target="_blank" class="cursor-pointer ">
+               <ion-icon class="text-3xl text-[#64748B] hover:text-[#2563EB]" name="logo-whatsapp"></ion-icon> 
+           </a>
+           <a href="https://x.com/@vaLorant56" target="_blank" class="cursor-pointer "><ion-icon class="text-3xl text-[#64748B] hover:text-[#2563EB]" name="logo-twitter"></ion-icon></a>
+           <a href="https://github.com/Dapo-f" target="_blank" class="cursor-pointer "><ion-icon class="text-3xl text-[#64748B] hover:text-[#2563EB]" name="logo-github"></ion-icon></a>
+        </div>
+    </section>
+    <footer class="flex justify-center mt-12">
+        <p class="text-sm hover:text-[#2563EB] hover:underline">&copy 2026 Adedapo Fagorala.</p>
+    </footer>
+    <script>
+        const navLinks = document.querySelector(".navLinks")
+        function onToggleMenu(e) {
+            e.name = e.name === 'menu' ? 'close' : 'menu'
+            navLinks.classList.toggle('top-[9%]')
+        }
+    </script>
+  </body>
+</html>
