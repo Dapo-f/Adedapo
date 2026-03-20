@@ -16,7 +16,7 @@ A personal portfolio website showcasing my frontend development projects.
 - Clean UI with Tailwind CSS
 
 ## Screenshot
-![Screenshot](./Screenshot.jpg)
+[Screenshot](./Sreenshot.jpg)
 
 ## 🛠️ Tech Stack
 - HTML
