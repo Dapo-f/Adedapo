@@ -20,68 +20,449 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <!-- css -->
+    <style>
+      /* Navigation bar */
+      .navLinks {
+        top: -400%;
+        transition: top 0.3s ease-in-out;
+      }
+
+      .navLinks.menu-open {
+        top: 64px; /* same as navbar height */
+      }
+      /* Name animation */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      /* Image animation */
+      @keyframes fadeSlide {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
   </head>
   <body class="flex flex-col bg-[#F8FAFC] min-h-screen font-[Poppins]">
-    <header class="text-[#64748B]">
+    <header class="text-[#64748B] sticky top-0 bg-[#F8FAFC] z-50">
       <nav
-        class="flex justify-between items-center md:w-[70%] w-[95%] mx-auto py-4"
+        class="flex justify-between items-center md:w-[80%] w-[95%] mx-auto py-4"
       >
         <div class="logo text-xl font-semibold">
           <a href="index.html"><h1>ADEDAPO FAGORALA</h1></a>
         </div>
         <div
-          class="navLinks duration-500 md:static md:min-h-fit absolute bg-[#F8FAFC] min-h-[30vh] left-0 top-[-100%] md:w-auto w-full md:border-none border-t-2 border-b-2 border-[#E2E8F0] flex items-center justify-center"
+          class="navLinks duration-500 md:static md:min-h-fit absolute bg-[#F8FAFC] min-h-[30vh] left-0 z-50 md:z-0 md:w-auto w-full md:border-none border-t-2 border-b-2 border-[#E2E8F0] flex items-center justify-center"
         >
           <ul
-            class="flex md:flex-row flex-col md:items-center md:gap-[3vw] gap-3 font-medium"
+            class="flex md:flex-row flex-col md:items-center md:gap-[3vw] gap-1 font-medium"
           >
             <li>
-              <a class="hover:text-[#2563EB] hover:underline" href="index.html" >Home</a>
+              <a
+                class="hover:text-[#2563EB] hover:underline transition"
+                href="#home"
+                >Home</a
+              >
             </li>
             <li>
-              <a class="hover:text-[#2563EB] hover:underline" href="about.html">About</a>
+              <a
+                class="hover:text-[#2563EB] hover:underline transition"
+                href="#about"
+                >About</a
+              >
             </li>
             <li>
-              <a class="hover:text-[#2563EB] hover:underline" href="projects.html"
+              <a
+                class="hover:text-[#2563EB] hover:underline transition"
+                href="#projects"
                 >Projects</a
               >
             </li>
-            <!-- <li>
-              <a class="hover:text-[#2563EB] hover:underline" href="contact.html"
+            <li>
+              <a
+                class="hover:text-[#2563EB] hover:underline"
+                href="#contact"
                 >Contact</a
               >
-            </li> -->
+            </li>
           </ul>
         </div>
-        <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+        <ion-icon
+          onclick="onToggleMenu(this)"
+          name="menu"
+          class="text-3xl cursor-pointer md:hidden"
+        ></ion-icon>
       </nav>
     </header>
-    <section class="flex flex-col flex-1  items-center justify-center gap-8 ">
-        <img class="w-50 rounded-full" src="img/Logo.png" alt="profile">
+    <main
+      id="home"
+      class="flex flex-col items-center justify-center gap-6 md:w-[80%] w-[95%] mx-auto py-24 md:py-32"
+    >
+      <div class="flex flex-col items-center gap-6">
         <div class="flex flex-col items-center gap-2">
-            <h1 class="text-3xl text-[#64748B] font-semibold">Adedapo Fagorala</h1>
-            <h2 class="text-2xl text-[#64748B] font-medium">Frontend Developer</h2>
+          <h1 class="text-[#1E293B] font-normal text-lg md:text-xl">
+            Hi, I'm
+            <span
+              class="inline-block text-4xl md:text-6xl lg:text-7xl text-[#64748B] font-semibold animate-[fadeSlide_1s_ease-out]"
+            >
+              Adedapo
+            </span>
+          </h1>
+          <p
+            class="text-center text-[#1E293B] text-base md:text-lg leading-relaxed max-w-2xl mt-4"
+          >
+            I’m a front-end developer who enjoys turning ideas into clean,
+            interactive web experiences. With skills in UI/UX design and
+            research, I focus on understanding users and building interfaces
+            that feel simple, clear, and effective
+          </p>
         </div>
-        <div class="flex items-center gap-6">
-           <a href="mailto:adedapofagorala@gmail.com" class="cursor-pointer ">
-            <ion-icon class="text-4xl text-[#64748B] hover:text-[#2563EB]" name="mail-open-outline"></ion-icon>
-           </a>
-           <a href="https://wa.me/2349069697463" target="_blank" class="cursor-pointer ">
-               <ion-icon class="text-3xl text-[#64748B] hover:text-[#2563EB]" name="logo-whatsapp"></ion-icon> 
-           </a>
-           <a href="https://x.com/@vaLorant56" target="_blank" class="cursor-pointer "><ion-icon class="text-3xl text-[#64748B] hover:text-[#2563EB]" name="logo-twitter"></ion-icon></a>
-           <a href="https://github.com/Dapo-f" target="_blank" class="cursor-pointer "><ion-icon class="text-3xl text-[#64748B] hover:text-[#2563EB]" name="logo-github"></ion-icon></a>
+        <a
+          href="#projects"
+          class="mt-2 px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg shadow-md hover:scale-105 transition duration-300"
+        >
+          View Projects
+        </a>
+        <!-- <div class="flex items-center gap-6 mt-4">
+             <a href="mailto:adedapofagorala@gmail.com" class="cursor-pointer ">
+              <ion-icon class="text-4xl text-[#64748B] hover:text-[#2563EB]" name="mail-open-outline"></ion-icon>
+             </a>
+             <a href="https://wa.me/2349069697463" target="_blank" class="cursor-pointer ">
+                 <ion-icon class="text-3xl text-[#64748B] hover:text-[#2563EB]" name="logo-whatsapp"></ion-icon> 
+             </a>
+             <a href="https://x.com/@vaLorant56" target="_blank" class="cursor-pointer "><ion-icon class="text-3xl text-[#64748B] hover:text-[#2563EB]" name="logo-twitter"></ion-icon></a>
+             <a href="https://github.com/Dapo-f" target="_blank" class="cursor-pointer "><ion-icon class="text-3xl text-[#64748B] hover:text-[#2563EB]" name="logo-github"></ion-icon></a>
+          </div> -->
+      </div>
+    </main>
+    <section
+      id="about"
+      class="flex flex-col justify-center flex-1 gap-6 md:w-[80%] w-[95%] mx-auto min-h-screen"
+    >
+      <header>
+        <div class="flex items-center gap-4">
+          <h2 class="text-2xl :text-3xl font-semibold text-[#64748B] whitespace-nowrap">
+            About Me
+          </h2>
+          <div
+            class="flex-1 h-[1px] bg-gradient-to-r from-gray-300 to-transparent"
+          ></div>
         </div>
+      </header>
+      <div
+        class="flex flex-col md:flex-row items-center justify-between gap-12"
+      >
+        <article
+          class="flex flex-col gap-6 text-[#1E293B] md:text-[18px] text-[15px] items-start md:max-w-[60%]"
+        >
+          <p class="max-w-2xl leading-relaxed">
+            I’m a Frontend Developer with skills in UI/UX design, focused on
+            building clean, responsive, and user-friendly web experiences. I
+            enjoy turning ideas and designs into functional, interactive
+            interfaces that are both visually appealing and easy to use.
+          </p>
+          <p class="max-w-2xl leading-relaxed">
+            Alongside development, I apply UI/UX principles to ensure the
+            interfaces I build are intuitive, accessible, and user-focused. I
+            pay attention to how users interact with products and aim to create
+            experiences that feel simple, clear, and effective.
+          </p>
+          <p class="max-w-2xl leading-relaxed">
+            I’m constantly improving my skills by building projects, solving
+            real-world problems, and refining how I structure and write code. My
+            goal is to grow as a developer, gain real-world experience, and
+            contribute to meaningful projects that deliver high-quality user
+            experiences.
+          </p>
+        </article>
+        <img
+          class="w-55 md:w-85 rounded-full order-first md:order-last animate-[float_4s_ease-in-out_1.2s]"
+          src="img/Logo.png"
+          alt="profile"
+        />
+      </div>
     </section>
-    <footer class="flex justify-center mt-12">
-        <p class="text-sm hover:text-[#2563EB] hover:underline">&copy 2026 Adedapo Fagorala.</p>
+    <section
+      id="projects"
+      class="flex flex-col flex-1 gap-12 pt-18 md:w-[80%] w-[95%] mx-auto py-20 md:py-32"
+    >
+      <header>
+        <div class="flex items-center gap-4">
+          <h2 class="text-2xl :text-3xl font-semibold text-[#64748B] whitespace-nowrap">
+            Projects
+          </h2>
+          <div
+            class="flex-1 h-[1px] bg-gradient-to-r from-gray-300 to-transparent"
+          ></div>
+        </div>
+      </header>
+      <div class="flex gap-4 self-center">
+        <button
+          class="filter-btn px-4 py-1 rounded-full bg-blue-600 text-white hover:bg-blue-400 hover:text-white transition duration-300"
+          data-filter="all"
+        >
+          All
+        </button>
+        <button
+          class="filter-btn px-4 py-1 rounded-full bg-gray-200 text-gray-700 hover:bg-blue-400 hover:text-white transition duration-300"
+          data-filter="web"
+        >
+          Web Dev
+        </button>
+        <button
+          class="filter-btn px-4 py-1 rounded-full bg-gray-200 text-gray-700 hover:bg-blue-400 hover:text-white transition duration-300"
+          data-filter="uiux"
+        >
+          UI/UX
+        </button>
+      </div>
+      <div>
+        <div
+          class="card-Container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch"
+        >
+          <div
+            class="project-card flex flex-col gap-4 p-4 rounded-xl shadow-md hover:shadow-lg transition duration-500 bg-white hover:-translate-y-1 cursor-pointer h-full"
+            data-category="web"
+          >
+            <a href="https://dapo-f.github.io/Bento-Grid/"
+              ><img
+                src="img/Scr.jpg"
+                alt=""
+                class="rounded-lg w-full h-48 object-cover"
+            /></a>
+            <div class="flex flex-col gap-2 flex-grow">
+              <a
+                href="https://dapo-f.github.io/Bento-Grid/"
+                class="hover:text-[#64748B] hover:underline transition duration-500 md:text-[20px] text-lg"
+                ><p class="font-medium">
+                  Bento Grid Layout (from Frontend Mentor)
+                </p></a
+              >
+              <p class="text-[#1E293B] text-sm md:text-base leading-6">
+                Created a responsive bento-style grid layout from a design
+                challenge, focusing on CSS Grid, layout structuring, and
+                responsive design.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <p class="px-3 py-1 text-sm rounded-full bg-[#E34F26] text-white">
+                Html
+              </p>
+              <p class="px-3 py-1 text-sm rounded-full bg-[#1572B6] text-white">
+                Css
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-card flex flex-col gap-4 p-4 rounded-xl shadow-md hover:shadow-lg transition duration-300 bg-white hover:-translate-y-1 cursor-pointer h-full"
+            data-category="web"
+          >
+            <a href="http://dapo-f.github.io/color-generator/"
+              ><img
+                src="img/Colorex.jpg"
+                alt=""
+                class="rounded-lg w-full h-48 object-cover"
+            /></a>
+            <div class="flex flex-col gap-2 flex-grow">
+              <a
+                href=" http://dapo-f.github.io/color-generator/"
+                class="hover:text-[#64748B] hover:underline transition duration-500 md:text-[20px] text-lg"
+                ><p class="font-medium">Color Palette Generator</p></a
+              >
+              <p class="text-[#1E293B] text-sm md:text-base leading-6">
+                Built an interactive tool that generates four random color
+                palettes with HEX codes, focusing on JavaScript logic, DOM
+                manipulation, and user interaction.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <p class="px-3 py-1 text-sm rounded-full bg-[#E34F26] text-white">
+                Html
+              </p>
+              <p class="px-3 py-1 text-sm rounded-full bg-[#1572B6] text-white">
+                Css
+              </p>
+              <p class="px-3 py-1 text-sm rounded-full bg-[#F7DF1E] text-black">
+                JavaScript
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-card flex flex-col gap-4 p-4 rounded-xl shadow-md hover:shadow-lg transition duration-300 bg-white hover:-translate-y-1 cursor-pointer h-full"
+            data-category="web"
+          >
+            <a href="https://dapo-f.github.io/Portfolio-Landing-Page/"
+              ><img
+                src="img/tj.jpg"
+                alt=""
+                class="rounded-lg w-full h-48 object-cover"
+            /></a>
+            <div class="flex flex-col gap-2 flex-grow">
+              <a
+                href="https://dapo-f.github.io/Portfolio-Landing-Page/"
+                class="hover:text-[#64748B] hover:underline transition duration-500 md:text-[20px] text-lg"
+                ><p class="font-medium">Client Portfolio Website</p></a
+              >
+              <p class="text-[#1E293B] text-sm md:text-base leading-6">
+                Developed a responsive portfolio website using Tailwind CSS,
+                translating client requirements into a clean, functional design
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <p class="px-3 py-1 text-sm rounded-full bg-[#E34F26] text-white">
+                Html
+              </p>
+              <p class="px-3 py-1 text-sm rounded-full bg-[#38BDF8] text-white">
+                Tailwind
+              </p>
+            </div>
+          </div>
+          <div
+            class="project-card flex flex-col gap-4 p-4 rounded-xl shadow-md hover:shadow-lg transition duration-300 bg-white hover:-translate-y-1 cursor-pointer h-full"
+            data-category="uiux"
+          >
+            <a href="music.html"
+              ><img
+                src="music/Frame 38.png"
+                alt=""
+                class="rounded-lg w-full h-48 object-cover"
+            /></a>
+            <div class="flex flex-col gap-2 flex-grow">
+              <a
+                href="music.html"
+                class="hover:text-[#64748B] hover:underline transition duration-500 md:text-[20px] text-lg"
+                ><p class="font-medium">Utha Rock</p></a
+              >
+              <p class="text-[#1E293B] text-sm md:text-base leading-6">
+                Music app for booking concerts & buying albums
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <p class="px-3 py-1 text-sm rounded-full bg-[#F24E1E] text-white">
+                Figma
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="contact"
+      class="flex flex-col flex-1 gap-4 md:w-[80%] w-[95%] mx-auto py-20 md:py-30"
+    >
+      <header>
+        <div class="flex items-center gap-4">
+          <h2 class="text-2xl md:text-3xl font-semibold text-[#64748B] whitespace-nowrap">
+            Get in Touch
+          </h2>
+          <div
+            class="flex-1 h-[1px] bg-gradient-to-r from-gray-300 to-transparent"
+          ></div>
+        </div>
+      </header>
+      <p class="max-w-2xl leading-relaxed self-center text-center">
+        I’d love to hear from you! Whether you have a project in mind, a
+        question, or just want to connect, feel free to reach out. I’m always
+        open to collaborations, freelance opportunities, and meaningful
+        conversations about web development and design.
+      </p>
+      <div class="flex items-center gap-6 mt-4 mx-auto">
+        <a href="mailto:adedapofagorala@gmail.com" class="cursor-pointer">
+          <ion-icon
+            class="text-5xl text-[#64748B] hover:text-[#2563EB]"
+            name="mail-open-outline"
+          ></ion-icon>
+        </a>
+        <a
+          href="https://wa.me/2349069697463"
+          target="_blank"
+          class="cursor-pointer"
+        >
+          <ion-icon
+            class="text-4xl text-[#64748B] hover:text-[#2563EB]"
+            name="logo-whatsapp"
+          ></ion-icon>
+        </a>
+        <a
+          href="https://x.com/@vaLorant56"
+          target="_blank"
+          class="cursor-pointer"
+          ><ion-icon
+            class="text-4xl text-[#64748B] hover:text-[#2563EB]"
+            name="logo-twitter"
+          ></ion-icon
+        ></a>
+        <a
+          href="https://github.com/Dapo-f"
+          target="_blank"
+          class="cursor-pointer"
+          ><ion-icon
+            class="text-4xl text-[#64748B] hover:text-[#2563EB]"
+            name="logo-github"
+          ></ion-icon
+        ></a>
+      </div>
+    </section>
+    <footer class="flex flex-col items-center mt-12">
+      <!-- <div
+        class="flex-1 h-[1px] w-full mx-auto bg-gray-300"
+      ></div> -->
+      <p class="text-sm hover:text-[#2563EB] hover:underline">
+        &copy 2026 Adedapo Fagorala.
+      </p>
     </footer>
     <script>
-        const navLinks = document.querySelector(".navLinks")
-        function onToggleMenu(e) {
-            e.name = e.name === 'menu' ? 'close' : 'menu'
-            navLinks.classList.toggle('top-[9%]')
-        }
+      // Hamburger button
+      const navLinks = document.querySelector(".navLinks");
+      function onToggleMenu(e) {
+        e.name = e.name === "menu" ? "close" : "menu";
+        navLinks.classList.toggle("menu-open");
+      }
+
+      // project navbar
+      const activeClasses = ["bg-blue-600", "text-white"];
+      const inactiveClasses = [
+        "bg-gray-200",
+        "text-gray-700",
+        ,
+        "hover:bg-blue-400",
+      ];
+      const buttons = document.querySelectorAll(".filter-btn");
+      const cards = document.querySelectorAll(".project-card");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          buttons.forEach((btn) => {
+            // REMOVE active styles from all buttons
+            btn.classList.remove(...activeClasses);
+            btn.classList.add(...inactiveClasses);
+          });
+
+          // ADD active style to clicked button
+          button.classList.remove(...inactiveClasses);
+          button.classList.add(...activeClasses);
+
+          const category = button.dataset.filter;
+          cards.forEach((card) => {
+            if (category === "all" || card.dataset.category === category) {
+              card.style.display = "";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
     </script>
   </body>
 </html>
