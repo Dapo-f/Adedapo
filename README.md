@@ -1,4 +1,12 @@
-# Portfolio Website
+## Table of contents
+
+- [Overview](#overview)
+  - [Features](#features)
+  - [Screenshot](#screenshot)
+  - [Tech Stack](#tech-stack)
+  - [Live Demo](#live-demo)
+
+## Overview
 
 A personal portfolio website showcasing my frontend development projects.
 
@@ -7,13 +15,13 @@ A personal portfolio website showcasing my frontend development projects.
 - Project showcase
 - Clean UI with Tailwind CSS
 
+## Screenshot
+![Screenshot](./Screenshot.jpg)
+
 ## 🛠️ Tech Stack
 - HTML
 - Tailwind CSS
 - JavaScript
 
-## 📸 Preview
-(Add screenshot here)
-
 ## 🔗 Live Demo
-(Add your GitHub Pages link)
+(https://dapo-f.github.io/Adedapo/)
