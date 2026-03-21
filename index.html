@@ -22,6 +22,12 @@
     ></script>
     <!-- css -->
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      section {
+        scroll-snap-align: start;
+      }
       /* Navigation bar */
       .navLinks {
         top: -400%;
@@ -70,28 +76,28 @@
           >
             <li>
               <a
-                class="hover:text-[#2563EB] hover:underline transition"
+                class="hover:text-[#2563EB] hover:underline transition nav-link"
                 href="#home"
                 >Home</a
               >
             </li>
             <li>
               <a
-                class="hover:text-[#2563EB] hover:underline transition"
+                class="hover:text-[#2563EB] hover:underline transition nav-link"
                 href="#about"
                 >About</a
               >
             </li>
             <li>
               <a
-                class="hover:text-[#2563EB] hover:underline transition"
+                class="hover:text-[#2563EB] hover:underline transition nav-link"
                 href="#projects"
                 >Projects</a
               >
             </li>
             <li>
               <a
-                class="hover:text-[#2563EB] hover:underline"
+                class="hover:text-[#2563EB] hover:underline transition nav-link"
                 href="#contact"
                 >Contact</a
               >
@@ -99,6 +105,7 @@
           </ul>
         </div>
         <ion-icon
+          id="menu-icon"
           onclick="onToggleMenu(this)"
           name="menu"
           class="text-3xl cursor-pointer md:hidden"
@@ -107,7 +114,7 @@
     </header>
     <main
       id="home"
-      class="flex flex-col items-center justify-center gap-6 md:w-[80%] w-[95%] mx-auto py-24 md:py-32"
+      class="flex flex-col items-center justify-center gap-2 md:w-[80%] w-[95%] mx-auto py-32 md:py-40"
     >
       <div class="flex flex-col items-center gap-6">
         <div class="flex flex-col items-center gap-2">
@@ -120,7 +127,7 @@
             </span>
           </h1>
           <p
-            class="text-center text-[#1E293B] text-base md:text-lg leading-relaxed max-w-2xl mt-4"
+            class="text-center text-[#1E293B] text-base md:text-lg leading-relaxed max-w-2xl mt-2"
           >
             I’m a front-end developer who enjoys turning ideas into clean,
             interactive web experiences. With skills in UI/UX design and
@@ -152,7 +159,9 @@
     >
       <header>
         <div class="flex items-center gap-4">
-          <h2 class="text-2xl :text-3xl font-semibold text-[#64748B] whitespace-nowrap">
+          <h2
+            class="text-2xl md:text-3xl font-semibold text-[#64748B] whitespace-nowrap"
+          >
             About Me
           </h2>
           <div
@@ -195,11 +204,13 @@
     </section>
     <section
       id="projects"
-      class="flex flex-col flex-1 gap-12 pt-18 md:w-[80%] w-[95%] mx-auto py-20 md:py-32"
+      class="flex flex-col flex-1 gap-12 md:w-[80%] w-[95%] mx-auto py-32 md:py-40"
     >
       <header>
         <div class="flex items-center gap-4">
-          <h2 class="text-2xl :text-3xl font-semibold text-[#64748B] whitespace-nowrap">
+          <h2
+            class="text-2xl md:text-3xl font-semibold text-[#64748B] whitespace-nowrap"
+          >
             Projects
           </h2>
           <div
@@ -342,7 +353,7 @@
               <a
                 href="music.html"
                 class="hover:text-[#64748B] hover:underline transition duration-500 md:text-[20px] text-lg"
-                ><p class="font-medium">Utha Rock</p></a
+                ><p class="font-medium">Utah Rock</p></a
               >
               <p class="text-[#1E293B] text-sm md:text-base leading-6">
                 Music app for booking concerts & buying albums
@@ -363,7 +374,9 @@
     >
       <header>
         <div class="flex items-center gap-4">
-          <h2 class="text-2xl md:text-3xl font-semibold text-[#64748B] whitespace-nowrap">
+          <h2
+            class="text-2xl md:text-3xl font-semibold text-[#64748B] whitespace-nowrap"
+          >
             Get in Touch
           </h2>
           <div
@@ -390,7 +403,7 @@
           class="cursor-pointer"
         >
           <ion-icon
-            class="text-4xl text-[#64748B] hover:text-[#2563EB]"
+            class="text-5xl text-[#64748B] hover:text-[#2563EB]"
             name="logo-whatsapp"
           ></ion-icon>
         </a>
@@ -399,7 +412,7 @@
           target="_blank"
           class="cursor-pointer"
           ><ion-icon
-            class="text-4xl text-[#64748B] hover:text-[#2563EB]"
+            class="text-5xl text-[#64748B] hover:text-[#2563EB]"
             name="logo-twitter"
           ></ion-icon
         ></a>
@@ -408,7 +421,7 @@
           target="_blank"
           class="cursor-pointer"
           ><ion-icon
-            class="text-4xl text-[#64748B] hover:text-[#2563EB]"
+            class="text-5xl text-[#64748B] hover:text-[#2563EB]"
             name="logo-github"
           ></ion-icon
         ></a>
@@ -424,11 +437,20 @@
     </footer>
     <script>
       // Hamburger button
+      const menuIcon = document.querySelector("#menu-icon");
+      const menuLinks = document.querySelectorAll(".nav-link");
       const navLinks = document.querySelector(".navLinks");
       function onToggleMenu(e) {
         e.name = e.name === "menu" ? "close" : "menu";
         navLinks.classList.toggle("menu-open");
       }
+
+      menuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("menu-open"); // always close
+          menuIcon.name = "menu"; // reset icon
+        });
+      });
 
       // project navbar
       const activeClasses = ["bg-blue-600", "text-white"];
